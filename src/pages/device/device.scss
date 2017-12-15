@@ -1,0 +1,22 @@
+page-device {
+    .gif{
+        margin-top: 170px;
+        width: 180px;
+        height: 180px;
+    }
+
+    .png{
+        margin-top: 130px;
+        width: 280px;
+        height: 280px;
+    }
+
+    .gif_p{
+        text-align: center;
+    }
+
+    .fade-in{
+        transition: opacity 2s;
+        -webkit-transition: opacity 2s;
+    }
+}

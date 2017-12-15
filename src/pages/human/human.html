@@ -1,0 +1,52 @@
+<ion-content padding>
+    <div class="container">
+        <form (submit)='sendData()' #estaticoForm="ngForm">
+            <ion-item>
+                <ion-avatar item-left>
+                    <img [src]="userProfile.photoURL">
+                </ion-avatar>
+                <h1>{{ userProfile.displayName }}</h1>
+                <h3 style="color: gray">{{ userProfile.email }}</h3>
+            </ion-item>
+            <h3 class="title">Completa tus datos</h3>
+            <ion-list>
+                <ion-item>
+                    <ion-label>Fecha de nacimiento</ion-label>
+                    <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YYYY" cancelText="cancelar" doneText="aceptar" [(ngModel)]="json.Nacimiento"
+                        required name="naciemiento"></ion-datetime>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Sexo</ion-label>
+                    <ion-select cancelText="cancelar" okText="Aceptar" [(ngModel)]="json.Sexo" required name="sexo">
+                        <ion-option value="M">Masculino</ion-option>
+                        <ion-option value="F">Femenino</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Tipo de Sangre</ion-label>
+                    <ion-select cancelText="cancelar" okText="Aceptar" [(ngModel)]="json.TipoSangre" required name="sangre">
+                        <ion-option value="A +">A +</ion-option>
+                        <ion-option value="A -">A -</ion-option>
+                        <ion-option value="B +">B +</ion-option>
+                        <ion-option value="B -">B -</ion-option>
+                        <ion-option value="AB +">AB +</ion-option>
+                        <ion-option value="AB -">AB -</ion-option>
+                        <ion-option value="O +">O +</ion-option>
+                        <ion-option value="O -">O -</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label stacked>Nacionalidad</ion-label>
+                    <ion-input type="text" placeholder="Chilena" [(ngModel)]="json.Nacionalidad" required name="nacionalidad"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label stacked>Origen o Etnia</ion-label>
+                    <ion-input type="text" placeholder="Latina" [(ngModel)]="json.Origen" required name="origen"></ion-input>
+                </ion-item>
+            </ion-list>
+            <div text-center>
+                <button ion-button large type="submit" [disabled]="!estaticoForm.form.valid" color="fanta" style="width: 95%;">Enviar</button>
+            </div>
+        </form>
+    </div>
+</ion-content>

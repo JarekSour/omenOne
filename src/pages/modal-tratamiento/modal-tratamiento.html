@@ -1,0 +1,45 @@
+<ion-header>
+    <ion-navbar color="cian">
+        <ion-title>Tratamiento</ion-title>
+        <ion-buttons end>
+            <button ion-button (click)="closeModal()">Atrás</button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+        <p style="color:rgb(140, 140, 140);text-align: right">
+            <i>Los campos marcados con (*) son obligatorios.</i>
+        </p>
+        <form (submit)='addTratamiento()' #tratamientoForm="ngForm">
+            <ion-item>
+                <ion-label stacked>*Protocolo</ion-label>
+                <ion-input type="text" required placeholder="ej. Hermantrut" name="protocolo" [(ngModel)]="json.Protocolo"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label stacked>*Rama</ion-label>
+                <ion-input type="text" required placeholder="ej. Cirujia para remover..." name="rama" [(ngModel)]="json.Rama"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>*Fecha de inicio</ion-label>
+                <ion-datetime required displayFormat="DD/MM/YYYY" [(ngModel)]="json.FechaInicio" pickerFormat="DD/MM/YYYY" cancelText="cancelar"
+                    doneText="aceptar" name="inicio"></ion-datetime>
+            </ion-item>
+            <ion-item>
+                <ion-label>*Fecha de término</ion-label>
+                <ion-datetime required displayFormat="DD/MM/YYYY" [(ngModel)]="json.FechaTermino" pickerFormat="DD/MM/YYYY" cancelText="cancelar"
+                    doneText="aceptar" name="termino"></ion-datetime>
+            </ion-item>
+            <ion-item>
+                <ion-label stacked>*Tratamiento completo</ion-label>
+                <ion-textarea required placeholder="Operación exitosa" name="comentario" rows="5" [(ngModel)]="json.TratamientoCompleto"></ion-textarea>
+            </ion-item>
+            <div text-center>
+                <button ion-button large type="submit" [disabled]="!tratamientoForm.form.valid" color="fanta" style="width: 95%;margin-top: 20px;">Agregar y volver</button>
+            </div>
+        </form>
+    </ion-list>
+</ion-content>

@@ -1,18 +1,86 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
+    <ion-navbar color="cian">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>omen ONE</ion-title>
+        <ion-buttons end>
+            <button (click)="addDevice()" ion-button clear>
+                Agregar dispositivo
+            </button>
+        </ion-buttons>
+    </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+<ion-content padding style="background-color: #ffffff;">
+    <div *ngIf="isNotFound" class="isNotFound">
+        <img src="assets/img/emoticon.png" height="150">
+        <p style="font-size: 17px;font-style: italic;color: rgb(87, 87, 87);">Conecta tus dispositivos
+            <br>para obtener más información</p>
+    </div>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+    <ion-grid>
+        <ion-row *ngIf="isPulso">
+            <ion-col col-4 offset-1>
+                <ion-avatar item-left>
+                    <img src="assets/images/pulso.png" class="img-round">
+                </ion-avatar>
+            </ion-col>
+            <ion-col col-7>
+                <h1 style="margin-top: 2px">{{pulso}}
+                    <span style="font-size: 17px;color: rgb(111, 111, 111)">xMin.</span>
+                </h1>
+                <h3 style="color: gray">Pulso</h3>
+            </ion-col>
+        </ion-row>
+        <ion-row *ngIf="isTemperatura">
+            <ion-col col-4 offset-1>
+                <ion-avatar item-left>
+                    <img src="assets/images/temperatura.png" class="img-round">
+                </ion-avatar>
+            </ion-col>
+            <ion-col col-7>
+                <h1 style="margin-top: 2px">{{temperatura}}
+                    <span style="font-size: 17px;color: rgb(111, 111, 111)">°</span>
+                </h1>
+                <h3 style="color: gray">Temperatura</h3>
+            </ion-col>
+        </ion-row>
+        <ion-row *ngIf="isPresion">
+            <ion-col col-4 offset-1>
+                <ion-avatar item-left>
+                    <img src="assets/images/presion.png" class="img-round">
+                </ion-avatar>
+            </ion-col>
+            <ion-col col-7>
+                <h1 style="margin-top: 2px">{{presion}}</h1>
+                <h3 style="color: gray">Presión</h3>
+            </ion-col>
+        </ion-row>
+        <ion-row *ngIf="isOxigenacion">
+            <ion-col col-4 offset-1>
+                <ion-avatar item-left>
+                    <img src="assets/images/oxygen.png" class="img-round">
+                </ion-avatar>
+            </ion-col>
+            <ion-col col-7>
+                <h1 style="margin-top: 2px">{{oxigenacion}}
+                    <span style="font-size: 17px;color: rgb(111, 111, 111)">%</span>
+                </h1>
+                <h3 style="color: gray">Oxigenación</h3>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+    <div class="dv">
+        <p>Mantén precionado este botón
+            <br>por 5 seg. para enviar una alerta.</p>
+    </div>
+
+    <ion-fab right bottom>
+        <button ion-fab color="fanta" class="btn-alert" (press)="sendAlert()" (pressup)="stopAlert()">
+            <p *ngIf="hideImage" style="font-size: 50px;text-align: center">{{seconds}}</p>
+            <img src="assets/images/ambulance.png" *ngIf="!hideImage">
+        </button>
+    </ion-fab>
 </ion-content>

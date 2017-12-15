@@ -1,0 +1,36 @@
+<ion-header>
+    <ion-navbar color="cian">
+        <ion-title>Procedimiento</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <form (submit)='sendProcedure()' #procedureForm="ngForm">
+        <ion-card>
+            <ion-card-content>
+                <ion-item>
+                    <ion-label stacked>Título o nombre del procedimiento</ion-label>
+                    <ion-input type="text" name="titulo" [(ngModel)]="json.titulo" required=""></ion-input>
+                </ion-item>
+                <h3 style="margin-left: 20px;margin-top: 25px">Escribe algún detalle respecto al procedimiento</h3>
+                <ion-item>
+                    <ion-textarea rows="10" placeholder="Detalle... (opcional)" [(ngModel)]="json.detalle" name="detalle">
+                    </ion-textarea>
+                </ion-item>
+                <ion-item style="margin-top: 20px">
+                    <ion-label>Hora y fecha indicada</ion-label>
+                    <ion-datetime displayFormat="HH:mm DD/MM/YYYY" pickerFormat="HH:mm DD/MM/YYYY" cancelText="cancelar" doneText="aceptar" [(ngModel)]="json.indicada"
+                        required name="indicada"></ion-datetime>
+                </ion-item>
+                <ion-item style="margin-top: 20px">
+                    <ion-label>Hora y fecha realizada</ion-label>
+                    <ion-datetime displayFormat="HH:mm DD/MM/YYYY" pickerFormat="HH:mm DD/MM/YYYY" cancelText="cancelar" doneText="aceptar" [(ngModel)]="json.realizada"
+                        required name="realizada"></ion-datetime>
+                </ion-item>
+            </ion-card-content>
+        </ion-card>
+        <div text-center>
+            <button ion-button large type="submit" [disabled]="!procedureForm.form.valid" color="fanta" style="width: 95%;">Enviar</button>
+        </div>
+    </form>
+</ion-content>

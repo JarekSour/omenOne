@@ -1,0 +1,69 @@
+<ion-header>
+    <ion-navbar color="cian">
+        <ion-title>Editar datos</ion-title>
+        <ion-buttons end>
+            <button ion-button (click)="closeModal()">Atrás</button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <h3 style="margin-top: 40px;margin-left: 20px;">{{ label }}</h3>
+
+    <form (submit)='updateVariable()' #updateForm="ngForm">
+
+        <ion-item style="margin-top: 15px;" *ngIf="isEstatura">
+            <ion-label stacked></ion-label>
+            <ion-input type="number" [(ngModel)]="json.Estatura" required name="medida"></ion-input>
+        </ion-item>
+        <ion-item style="margin-top: 15px;" *ngIf="isPeso">
+            <ion-label stacked></ion-label>
+            <ion-input type="number" [(ngModel)]="json.Peso" required name="medida"></ion-input>
+        </ion-item>
+
+        <ion-item style="margin-top: 15px;" *ngIf="isTratamiento">
+            <ion-textarea name="texto" rows="20" placeholder="Escribe aquí..." [(ngModel)]="json.Tratamiento" required>
+            </ion-textarea>
+        </ion-item>
+        <ion-item style="margin-top: 15px;" *ngIf="isAlergia">
+            <ion-textarea name="texto" rows="20" placeholder="Escribe aquí..." [(ngModel)]="json.Alergia" required>
+            </ion-textarea>
+        </ion-item>
+        <ion-item style="margin-top: 15px;" *ngIf="isFuma">
+            <ion-select cancelText="cancelar" okText="Aceptar" [(ngModel)]="json.Fuma" required name="fuma">
+                <ion-option value="true">Si</ion-option>
+                <ion-option value="false">No</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item style="margin-top: 15px;" *ngIf="isBebe">
+            <ion-select cancelText="cancelar" okText="Aceptar" [(ngModel)]="json.Bebe" required name="bebe">
+                <ion-option value="true">Si</ion-option>
+                <ion-option value="false">No</ion-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item style="margin-top: 15px;" *ngIf="isPais">
+            <ion-label stacked></ion-label>
+            <ion-input type="text" [(ngModel)]="json.Pais" required name="pais"></ion-input>
+        </ion-item>
+        <ion-item style="margin-top: 15px;" *ngIf="isCiudad">
+            <ion-label stacked></ion-label>
+            <ion-input type="text" [(ngModel)]="json.Ciudad" required name="ciudad"></ion-input>
+        </ion-item>
+        <ion-item style="margin-top: 15px;" *ngIf="isComuna">
+            <ion-label stacked></ion-label>
+            <ion-input type="text" [(ngModel)]="json.Comuna" required name="comuna"></ion-input>
+        </ion-item>
+
+
+
+        <ion-grid>
+            <ion-row>
+                <ion-col col-8 offset-2>
+                    <button ion-button block large type="submit" [disabled]="!updateForm.form.valid" style="margin-top: 40px;" color="fanta">Guardar</button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </form>
+
+</ion-content>

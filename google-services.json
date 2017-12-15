@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "670163215938",
+    "project_id": "omen-707d3"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:670163215938:android:0317cd32021f5c77",
+        "android_client_info": {
+          "package_name": "omen.one.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "670163215938-8jslq1br1uajfjcmuos5jcvgm7cp6s1c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "omen.one.app",
+            "certificate_hash": "935ef64f506aeca6e3518f568e9bd0142843bd9d"
+          }
+        },
+        {
+          "client_id": "670163215938-h8k7nfmnpcg3tqisjsdo62g0ftascsde.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtfJdCi-7-b2YVvcX2HNzBmtb1qmk0dXk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

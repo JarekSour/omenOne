@@ -1,0 +1,86 @@
+<ion-header>
+    <ion-navbar color="cian">
+        <ion-title>Clínico</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <p style="color:rgb(140, 140, 140);text-align: right">
+            <i>Los campos marcados con (*) son obligatorios.</i>
+        </p>
+        <form (submit)='sendClinic()' #clinicForm="ngForm">
+            <ion-item>
+                <ion-label stacked>*Diagnóstico</ion-label>
+                <ion-input required type="text" placeholder="ej. Diabetes tipo 2" name="diagnostico" [(ngModel)]="json.Diagnostico"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label stacked>Histológico</ion-label>
+                <ion-input type="text" placeholder="ej. Biopsia de riñon" name="histologico" [(ngModel)]="json.Histologico"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label stacked>Título</ion-label>
+                <ion-input type="text" placeholder="Dato asociado al diagnóstico" name="titulo" [(ngModel)]="json.Item.Titulo"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label stacked>Contenido</ion-label>
+                <ion-input type="text" placeholder="Descripción" name="contenido" [(ngModel)]="json.Item.Contenido"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label stacked>Patologías asociadas</ion-label>
+                <ion-input type="text" placeholder="ej. Nefropatía" name="patologia" [(ngModel)]="json.PatologiasAsociadas"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>Historial familiar</ion-label>
+                <ion-select [(ngModel)]="historialFamiliar" multiple="true" cancelText="cancelar" okText="aceptar" name="historial">
+                    <ion-option value="Bisabuelos">Bisabuelos</ion-option>
+                    <ion-option value="Abuelos">Abuelos</ion-option>
+                    <ion-option value="Padres">Padres</ion-option>
+                    <ion-option value="Tíos">Tíos</ion-option>
+                    <ion-option value="Hermanos">Hermanos</ion-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>*Fecha de diagnóstico</ion-label>
+                <ion-datetime required displayFormat="DD/MM/YYYY" [(ngModel)]="json.FechaDiagnostico" pickerFormat="DD/MM/YYYY" cancelText="cancelar"
+                    doneText="aceptar" name="fecha"></ion-datetime>
+            </ion-item>
+
+            <ion-item>
+                <ion-label stacked>*Edad del paciente</ion-label>
+                <ion-input required type="number" placeholder="ej. 27" name="edad" [(ngModel)]="json.EdadPaciente"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>Inicio de tratamiento</ion-label>
+                <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="json.FechaTratamiento" pickerFormat="DD/MM/YYYY" cancelText="cancelar"
+                    doneText="aceptar" name="inicio"></ion-datetime>
+            </ion-item>
+
+            <ion-item>
+                <ion-label stacked>Ocupación del paciente</ion-label>
+                <ion-input type="text" placeholder="ej. Estudiante" name="ocupacion" [(ngModel)]="json.OcupacionPaciente"></ion-input>
+            </ion-item>
+            <ion-item>
+                <button type="button" ion-button outline class="myEditButton" (click)="addTratamiento()">
+                    <ion-icon name="add"></ion-icon>
+                </button>
+                <p style="color: #b7b7b7;font-size: 12px;">Tratamiento</p>
+                <div *ngFor="let tratamiento of json.Tratamiento">
+                    <p>- {{ tratamiento.Protocolo }} {{ tratamiento.Rama }}</p>
+                </div>
+            </ion-item>
+            <ion-item>
+                <ion-label stacked>Comentario de alta</ion-label>
+                <ion-textarea placeholder="Comentario..." name="comentario" rows="5" [(ngModel)]="json.ComentarioAlta"></ion-textarea>
+            </ion-item>
+            <div text-center>
+                <button ion-button large type="submit" [disabled]="!clinicForm.form.valid" color="fanta" style="width: 95%;">Enviar</button>
+            </div>
+        </form>
+    </ion-list>
+</ion-content>

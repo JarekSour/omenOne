@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-navbar color="cian">
+        <ion-title>Dispositivo</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <button ion-button (click)="statusBluetooth()" *ngIf="!_button">
+        <ion-icon name="search"></ion-icon>
+        <p class="space">scan</p>
+    </button>
+
+    <button ion-button (click)="disconnect()" >desconectar</button>
+
+    <h4 *ngIf="_name">Dispositivo conectado: {{_name}}</h4>
+
+    <!--<p>{{_data}}</p>-->
+
+    <p class="gif_p " *ngIf="peripheral">
+        <img class="gif" src="assets/images/radio.gif" alt="">
+    </p>
+
+    <p class="gif_p fade-in" *ngIf="okay">
+        <img class="png" src="assets/images/okay.png" alt="">
+    </p>
+</ion-content>

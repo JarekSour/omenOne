@@ -1,3 +1,52 @@
 page-home {
 
+    .btn-alert{
+        width: 130px;
+        height: 130px;
+        margin-right: 15px;
+        margin-bottom: 15px;
+        padding: 15px;
+    }
+
+    .label{
+        font-size: 14px;
+        color: gray;
+        margin-left: 25px;
+    }
+
+    .val{
+        color: white;
+        font-size: 45px;
+        font-weight: 100;
+    }
+
+    .dv{
+        position: absolute;
+        bottom: 55px;
+        left: 35px;
+        text-align: center;
+        color: #505050;
+        font-size: 15px;
+    }
+
+    .isNotFound{
+        top: 30%;
+        position: relative;
+        font-size: 17px;
+        text-align: center;
+       }
+
+    .img-round{
+        height: 60px;
+        border: 2px solid #d1d1d1;
+        border-radius: 50%;
+        box-shadow: 0 0 40px #0f8bb8;
+        padding: 2px;
+    }
+
+    ion-row{
+        border-bottom: 1px solid #a2a2a2;
+        padding: 15px 0px;
+    }
+
 }

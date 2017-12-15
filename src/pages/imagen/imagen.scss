@@ -1,0 +1,12 @@
+page-imagen {
+    img{
+        position:absolute;
+        left:0px;
+        top:0px;
+        z-index:-1;
+    }
+
+    .button-round-md {
+        border-radius: 100px;
+    }
+}

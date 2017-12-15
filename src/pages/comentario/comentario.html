@@ -1,0 +1,23 @@
+<ion-header>
+    <ion-navbar color="cian">
+        <ion-title>Comentarios</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <form (submit)='sendComentario()' #comentarioForm="ngForm">
+        <ion-card>
+            <ion-card-content>
+                <h2>Escribe comentarios o síntomas no comunicados a su medico</h2>
+                <ion-item>
+                    <ion-textarea rows="25" placeholder="Comentario..." [(ngModel)]="json.Comentario" name="comentario" required>
+                    </ion-textarea>
+                </ion-item>
+            </ion-card-content>
+        </ion-card>
+        <div text-center>
+            <button ion-button large type="submit" [disabled]="!comentarioForm.form.valid" color="fanta" style="width: 95%;">Enviar</button>
+        </div>
+    </form>
+</ion-content>
